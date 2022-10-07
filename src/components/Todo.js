@@ -1,12 +1,40 @@
+function Todo({ todo, index, markTodo, removeTodo }) {
+	return (
+		<tr>
+			<th>
+				<span
+					className="table-cell text-white text-left text-lg font-normal"
+					style={{
+						textDecoration: todo.isDone ? "line-through" : "none",
+						textDecorationColor: todo.isDone ? "black" : "",
+					}}
+				>
+					{todo.title}
+				</span>
+			</th>
 
-
-function Todo({todo,index,markTodo,removeTodo}) {
-   return ( <div className="">
-    <span style={{ textDecoration: todo.isDone ? "line-through" : "" }}>{todo.title}</span>
-    <button className="border-2 border-black" onClick={()=>{markTodo(index)}}>✓</button>
-    <button className="border-2 border-black" onClick={()=>{removeTodo(index)}}>✕</button>
-    <br />
-    </div>)
+			<td>
+				<button
+					className=" table-cell flex-no-shrink p-2 ml-4 mr-2 px-3 border-2 rounded bg-white hover:text-white   hover:bg-green-600"
+					onClick={() => {
+						markTodo(index);
+					}}
+				>
+					✓
+				</button>
+			</td>
+			<td>
+				<button
+					className="table-cell flex-no-shrink p-2 ml-2 border-2 rounded px-3 bg-white hover:text-white hover:bg-red-600"
+					onClick={() => {
+						removeTodo(index);
+					}}
+				>
+					✕
+				</button>
+			</td>
+		</tr>
+	);
 }
 
-export default Todo
+export default Todo;
